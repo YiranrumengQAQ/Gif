@@ -1,0 +1,94 @@
+{
+  "name": "@gifx/kernel",
+  "version": "1.0.0",
+  "description": "GIFX — a massive zero-dependency pure-frontend video→GIF (and GIF/APNG/WebP) conversion kernel: WebCodecs decode, parallel workers, 60+ filters, 5 palette quantizers, LZW/APNG/animated-WebP encoders, target-size auto-search.",
+  "type": "module",
+  "main": "./dist/gifx.js",
+  "module": "./dist/gifx.js",
+  "types": "./types/index.d.ts",
+  "unpkg": "./dist/gifx.umd.min.js",
+  "jsdelivr": "./dist/gifx.umd.min.js",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/gifx.js",
+      "default": "./dist/gifx.js"
+    },
+    "./ui": {
+      "import": "./dist/gifx-ui.js",
+      "default": "./dist/gifx-ui.js"
+    },
+    "./kernel": {
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    },
+    "./workers/*": "./dist/workers/*",
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "src",
+    "types",
+    "README.md",
+    "docs"
+  ],
+  "scripts": {
+    "test": "node --test \"test/*.test.js\"",
+    "check": "node tools/check.mjs",
+    "check:quick": "node tools/check.mjs --quick",
+    "oracle:lzw": "node tools/oracle-lzw.mjs",
+    "build": "node tools/build.mjs",
+    "build:watch": "node tools/build.mjs --watch",
+    "size": "node tools/size-report.mjs",
+    "selftest": "node tools/selftest.mjs",
+    "bench": "node tools/bench.mjs",
+    "typecheck": "node tools/typecheck.mjs",
+    "demo": "node tools/serve.mjs --port 5173",
+    "start": "node tools/build.mjs && node tools/serve.mjs --port 5173",
+    "docs": "node tools/docgen.mjs"
+  },
+  "keywords": [
+    "gif",
+    "video-to-gif",
+    "gif-encoder",
+    "lzw",
+    "apng",
+    "webp",
+    "webcodecs",
+    "offscreenworker",
+    "quantization",
+    "median-cut",
+    "octree",
+    "pngquant",
+    "floyd-steinberg",
+    "optimizer",
+    "browser",
+    "frontend",
+    "wasm-free",
+    "worker-pool",
+    "video",
+    "ffmpeg-free"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "browserslist": [
+    "chrome >= 90",
+    "firefox >= 115",
+    "safari >= 16.4",
+    "edge >= 90"
+  ],
+  "license": "MIT",
+  "author": "GIFX Kernel contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YiranrumengQAQ/Gif.git"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0",
+    "gifenc": "^1.0.3",
+    "omggif": "^1.0.7"
+  }
+}
